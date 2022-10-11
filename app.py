@@ -107,7 +107,8 @@ def mainPostExcel(fileData):
             'orders': mapOrders(idOrders[idx],ubigeoOrders[idx] ) , 
             } 
         results.append(r)
-    return results
+    filterResults = [x for x in results if len(x['orders'])>0]
+    return filterResults
 
 
 def mainPostJson(data):
@@ -173,7 +174,8 @@ def mainPostJson(data):
             'orders': mapOrders(idOrders[idx],ubigeoOrders[idx] ) , 
             } 
         results.append(r)
-    return results
+    filterResults = [x for x in results if len(x['orders'])>0]
+    return filterResults
 
 @app.route("/", methods = ['GET','POST'] )
 def getData():
